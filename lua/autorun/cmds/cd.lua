@@ -4,6 +4,15 @@
 
 ]]
 
+function reloadpath()
+	pathtext = LocalPlayer():Nick() .. "@gmod: ~ " .. Term.Path .. " $" --We need to set the new prompt text
+	drawpath:SetText(pathtext) --As well as update the label--
+	drawpath:SizeToContents() --------------------------------
+	commandbox:SetSize(frame:GetWide() - (4 + drawpath:GetWide()), 20) ------And resize the command box---
+	commandbox:SetPos(drawpath:GetWide() + 2, frame:GetTall() - 22)---------------------------------------
+	textarea:SetCaretPos(#textarea:GetValue()) --And set the caret to the end of the textbox.
+end
+
 local function pastfolder()  -- from ./garrysmod/lua/ to ./garrysmod/
 	local tblspl = string.Explode("/", Term.Path) --Split the 
 	table.remove(tblspl) --Pop off last key
@@ -11,14 +20,7 @@ local function pastfolder()  -- from ./garrysmod/lua/ to ./garrysmod/
 	Term.Path = table.concat(tblspl, "/") .. "/" or "" --Join the table to a string
 	if Term.Path == "/" then Term.Path = "" end --If the path is nothing but a / it makes problems for us.
 												--This simply turns it into nothing so it gets the base directory.
-
-	pathtext = LocalPlayer():Nick() .. "@gmod: ~ " .. Term.Path .. " $" --We need to set the new prompt text
-	drawpath:SetText(pathtext) --As well as update the label--
-	drawpath:SizeToContents() --------------------------------
-	commandbox:SetSize(frame:GetWide() - (4 + drawpath:GetWide()), 20) ------And resize the command box---
-	commandbox:SetPos(drawpath:GetWide() + 2, frame:GetTall() - 22)---------------------------------------
-	textarea:SetCaretPos(#textarea:GetValue()) --And set the caret to the end of the textbox.
-
+	reloadpath()
 	return
 end
 
@@ -53,12 +55,7 @@ function Term.cd(location) -- cd function. Parameter is as the name states, the 
 				Term.Path = Term.Path .. string.Right(text, #location - 3) .. "/" --Into the new folder
 			end
 		end
+		reloadpath()
 	end
-	pathtext = LocalPlayer():Nick() .. "@gmod: ~ " .. Term.Path .. " $" --Set the new prompt text.
-	drawpath:SetText(pathtext) -- Update the prompt label--
-	drawpath:SizeToContents() -----------------------------
-	commandbox:SetSize(frame:GetWide() - (4 + drawpath:GetWide()), 20)  --Set the size and position of the command text box--
-	commandbox:SetPos(drawpath:GetWide() + 2, frame:GetTall() - 22)		-----------------------------------------------------
-	textarea:SetCaretPos(#textarea:GetValue()) --Set the caret to the end of the text area.
-
+	reloadpath()
 end
