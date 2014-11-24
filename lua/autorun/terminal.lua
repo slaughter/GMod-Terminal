@@ -4,15 +4,15 @@
 	cd, pwd and ls are thanks to him.
 
 	Check out this project on github:
-	
+	https://github.com/fghdx/GMod-Terminal/
 
 ]]--
 
 Term = {}
 Term.Path = ""
 Term.Text = ""
-Term.DefaultText = [[Terminal v0.1
-Open source at github.com/fghdx
+Term.DefaultText = [[Gmod Terminal v1
+Open source at https://github.com/fghdx/GMod-Terminal/
 Credit to ExtReMLapin for some code. Check out his project: https://github.com/ExtReMLapin/GTerm]]
 
 Term.LastCommand = ""
@@ -167,6 +167,8 @@ function Term.Menu() --Function for drawing the menu
 
 		if command[1] == "exit" then --If the command is 'exit'
 			frame:Remove() --Remove the frame.
+			Term.Text = ""
+			Term.Path = ""
 			--We don't save the text of the session as we assume they want to completely exit and start a new window fresh.
 		end
 
