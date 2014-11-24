@@ -6,11 +6,11 @@
 
 local function pastfolder()  -- from ./garrysmod/lua/ to ./garrysmod/
 	local tblspl = string.Explode("/", Term.Path) --Split the 
-		table.remove(tblspl) --Pop off last key
-		table.remove(tblspl) --And again
-		Term.Path = table.concat(tblspl, "/") .. "/" or "" --Join the table to a string
-		if Term.Path == "/" then Term.Path = "" end --If the path is nothing but a / it makes problems for us.
-													--This simply turns it into nothing so it gets the base directory.
+	table.remove(tblspl) --Pop off last key
+	table.remove(tblspl) --And again
+	Term.Path = table.concat(tblspl, "/") .. "/" or "" --Join the table to a string
+	if Term.Path == "/" then Term.Path = "" end --If the path is nothing but a / it makes problems for us.
+												--This simply turns it into nothing so it gets the base directory.
 
 	pathtext = LocalPlayer():Nick() .. "@gmod: ~ " .. Term.Path .. " $" --We need to set the new prompt text
 	drawpath:SetText(pathtext) --As well as update the label--

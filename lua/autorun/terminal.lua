@@ -50,7 +50,7 @@ include("cmds/cd.lua")	      --
 include("cmds/ls.lua")	      --
 include("cmds/pwd.lua")	      --
 include("cmds/cat.lua")	      --
-include("cmds/echo.lua")	  --
+include("cmds/echo.lua")      --
 include("cmds/termcolor.lua") --
 --------------------------------
 --------------------------------
@@ -65,7 +65,6 @@ surface.CreateFont("terminaltitle", {font="Myriad Pro", size=18, antialias=true}
 surface.CreateFont("terminalfont", {font="ProFontWindows", size=12, antialias=true})
 
 function Term.Menu() --Function for drawing the menu
-
 	--The derma elements here are not local so we can access them outside of this function.
 
 	frame = vgui.Create("DFrame") --Create the frame. This is where we will draw everything.
@@ -73,7 +72,6 @@ function Term.Menu() --Function for drawing the menu
 	frame:SetTitle("") --Title is set to nothing because we draw the title in the paint function.
 	frame:ShowCloseButton(false) --We do not need a close button as I made a custom one below. (See frameclose function)
 	frame:MakePopup() --Make the frame resease the mouse.
-	
 	function frame:Paint(w,h) --This function is so we can draw on the frame.
 		draw.RoundedBox(0, 0, 0, w, h, Term.Colors['background']) --Changing the background colour.
 		draw.RoundedBox(0, 2, 25, w - 4, h - 27, Term.Colors['textarea']) --Draw a area for text box.
@@ -86,14 +84,13 @@ function Term.Menu() --Function for drawing the menu
 	textarea:SetPos(2, 25) --Set pos
 	textarea:SetEditable(true)  --I would prefer to have this false, but it is the only way to make the text area
 								--highlightable / make the scroll bar work. If you know another way let me know.
-	
+
 	if Term.Text == "" then --If the text in the terminal is not already set
 		textarea:SetText(Term.DefaultText) --Put the default text in
 	else --Otherwise
 		textarea:SetValue(Term.Text) --Put in the text that we saved
 	end
 	textarea:SetVerticalScrollbarEnabled(true) --So we can scroll.
-
 	textarea:SetFont("terminalfont") --Setting the font to our terminal font.
 	function textarea:Paint(w, h) --Lets theme the textarea
 		draw.RoundedBox(0, 0, 0, w, h, Term.Colors['textarea']) --This is the background colour.
@@ -208,8 +205,7 @@ function Term.Menu() --Function for drawing the menu
 			--If it is we want to do this.
 			draw.RoundedBox(0, 0, 2, w, h, Color(192, 57, 43))
 			draw.SimpleText("x", "terminaltitle", w / 2, h / 2, Color(255,255,255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
-		else --If it isn't we 
-			--do this
+		else --If it isn't we do this
 			draw.RoundedBox(0, 0, 0, w, h, Color(239, 72, 54))
 			draw.RoundedBox(0, 0, h-2, w, 2, Color(192, 57, 43))
 			draw.SimpleText("x", "terminaltitle", w / 2, (h / 2) - 2, Color(255,255,255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)

@@ -38,7 +38,7 @@ function Term.Colorize(colors)
 						background = Color(236, 236, 236),
 						textarea = Color(0, 0, 0),
 						consoletext = Color(200, 200, 200)
-					}
+						}
 
 		drawpath:SetTextColor(Term.Colors['consoletext']) --Reload the label colour.
 

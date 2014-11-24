@@ -120,7 +120,7 @@ function cat_with_options(f, op)
 			end
 			textarea:SetValue(textarea:GetValue() .. table.concat(text) .. "\n")
 			
-		else
+	else
 		Term.alert("Invalid option '" .. op .. "' Try 'cat --help for more information.'") -- Print an error
 	end
 end
