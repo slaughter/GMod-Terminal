@@ -3,12 +3,19 @@
 I was inspired by ExtReMLapin's [terminal 'GTerm'](https://github.com/ExtReMLapin/GTerm). So I made a derma panel for it using some of the features of his project along side some of mine.
 
 Features currently included are:
+
 1. Change Directory - cd
+
 2. Print Working Directory - pwd
+
 3. List - ls
+
 4. Echo - echo
+
 5. Catenate - cat
+
 6. Clear - clear
+
 7. Terminal Theming - "termcolor -help" for info.
 
 ##Screen Shots:
