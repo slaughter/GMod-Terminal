@@ -25,6 +25,8 @@ Term.Colors = {
 			}
 
 
+
+
 --Global functions
 function Term.space( times )
 	return string.rep( " ", times ) --Used to create spacing for messages.
@@ -61,8 +63,8 @@ include("cmds/termcolor.lua") --
 if CLIENT then --We do not want to execute this on the server.
 
 --fonts
-surface.CreateFont("terminaltitle", {font="Myriad Pro", size=18, antialias=true})
-surface.CreateFont("terminalfont", {font="ProFontWindows", size=12, antialias=true})
+surface.CreateFont("terminaltitle", {font="Myriad Pro", size=18, antialias=true}) --Title
+surface.CreateFont("terminalfont", {font="ProFontWindows", size=12, antialias=true}) --Terminal font.
 
 function Term.Menu() --Function for drawing the menu
 	--The derma elements here are not local so we can access them outside of this function.
