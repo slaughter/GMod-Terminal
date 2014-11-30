@@ -33,7 +33,7 @@ end
 
 function Term.cd(location) -- cd function. Parameter is as the name states, the location.
 	Term.pathfixmultipleslash() --Fix the path if it is broken.
-	if not location or #location == 0 then Term.error("No path specified!") return end --If there is no location specified then return
+	if not location or #location == 0 then Term.alert("No path specified!") return end --If there is no location specified then return
 	text = location --Text = location
 	text = pathsanitise(text) --Text is now equal to the output of pathsanatise
 
